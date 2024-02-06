@@ -25,7 +25,11 @@ $fontSize: toRem(28); // де 14(px) - розмір шрифту за замов
 // Основні кольори
 $mainColor: #21212a; // Колір шрифту за замовчуванням
 $yellowColor: #ffde40; // Колір шрифту за замовчуванням
-$yellowGradientColor: linear-gradient(90deg, rgba(254,222,13,1) 0%, rgba(246,184,1,1) 100%); // Колір шрифту за замовчуванням
+$yellowGradientColor: linear-gradient(
+	90deg,
+	rgba(254, 222, 13, 1) 0%,
+	rgba(246, 184, 1, 1) 100%
+); // Колір шрифту за замовчуванням
 
 $bgColor: #ffffff; // Колір шрифту за замовчуванням
 
@@ -67,6 +71,7 @@ $responsiveType: 1;
 // Стилі тега BODY ============================================================================================================================================================================================================================================================================================================================================================================================
 body {
 	background-color: $bgColor;
+	@include adaptiveValue("font-size", 28, 20);
 	// Скролл заблоковано
 	.lock & {
 		overflow: hidden;
@@ -155,5 +160,281 @@ body {
 @import "header";
 @import "footer";
 // ========================================================================================================================================================
+// Hero
+.hero {
+	position: relative;
+	@include adaptiveValue("padding-top", 280, 190, 2, 1730, 991.98);
+	@media (min-width: $tablet) {
+		padding-bottom: toRem(200);
+		background: url("@img/bg/main-bg.svg") center top / cover no-repeat;
+		&::before {
+			z-index: -1;
+			content: "";
+			width: 100%;
+			height: 100%;
+			top: toRem(0);
+			left: toRem(0);
+			position: absolute;
+			background: linear-gradient(to left, $yellowColor 50%, $bgColor 50%);
+		}
+	}
+	@media (max-width: $tablet) {
+		@include adaptiveValue("padding-top", 160, 130, 0, 991.98, 767.98);
+		&::before {
+			z-index: -1;
+			content: "G";
+			color: #f5f5f5;
+			top: toRem(-200);
+			font-weight: 700;
+			right: toRem(-100);
+			position: absolute;
+			font-size: toRem(1000);
+		}
+	}
+	&__container {
+		display: grid;
+		gap: toRem(50);
+		grid-template-columns: repeat(2, 1fr);
+		@media (max-width: $tablet) {
+			gap: toRem(0);
+			grid-template-columns: auto;
+		}
+	}
 
+	&__title {
+	}
+
+	&__main {
+	}
+
+	&__heading {
+		.heading__text {
+			max-width: toRem(575);
+		}
+		&:not(:last-child) {
+			margin-bottom: toRem(65);
+		}
+		@media (max-width: $tablet) {
+			&:not(:last-child) {
+				margin-bottom: toRem(35);
+			}
+		}
+	}
+
+	&__form {
+		display: flex;
+		gap: toRem(30);
+		align-items: center;
+		@media (max-width: em(1445)) {
+			gap: toRem(20);
+			flex-direction: column;
+		}
+		@media (max-width: $tablet) {
+			margin: toRem(0) toRem(-15);
+			background-color: $yellowColor;
+			padding: toRem(35) toRem(15) toRem(75) toRem(15);
+			border-radius: toRem(30) toRem(30) toRem(0) toRem(0);
+		}
+		@media (max-width: $mobileSmall) {
+			padding: toRem(25) toRem(15) toRem(65) toRem(15);
+		}
+	}
+
+	&__input {
+		width: 100%;
+	}
+
+	&__button {
+		width: 100%;
+	}
+}
+// ========================================================================================================================================================
+// Say
+.say {
+	position: relative;
+	padding-top: toRem(160);
+	border-radius: toRem(92);
+	padding-bottom: toRem(180);
+	background-color: $mainColor;
+	@media (max-width: em(1730.98)) {
+		padding-top: toRem(100);
+		padding-bottom: toRem(100);
+		border-radius: toRem(0) toRem(50) toRem(30) toRem(30);
+	}
+	@media (min-width: $tablet) {
+		margin-top: toRem(-130);
+	}
+	@media (max-width: $tablet) {
+		margin-top: toRem(-40);
+		padding-top: toRem(50);
+		padding-bottom: toRem(60);
+		border-radius: toRem(0) toRem(50) toRem(10) toRem(10);
+	}
+	@media (max-width: $mobileSmall) {
+		padding-bottom: toRem(35);
+	}
+	&__container {
+		display: grid;
+		gap: toRem(70);
+		position: relative;
+		grid-template-columns: repeat(2, 1fr);
+		&::before {
+			top: -90%;
+			content: "";
+			height: 100%;
+			left: toRem(-70);
+			position: absolute;
+			background: url("@img/say/car.png") left / contain no-repeat;
+			@include adaptiveValue("width", 1005, 550, 2, 1730.98, 991.98);
+		}
+		@media (max-width: em(1760)) {
+			gap: toRem(40);
+			align-items: center;
+		}
+		@media (max-width: em(1730.98)) {
+			align-items: start;
+			&::before {
+				top: -80%;
+			}
+		}
+		@media (max-width: em(1445)) {
+			&::before {
+				top: -73%;
+			}
+		}
+		@media (max-width: $tablet) {
+			grid-template-columns: auto;
+			&::before {
+				display: none;
+			}
+		}
+	}
+
+	&__body {
+	}
+
+	&__heading {
+		&:not(:last-child) {
+			margin-bottom: toRem(60);
+		}
+	}
+
+	&__button {
+		padding: toRem(0) toRem(60);
+		&:not(:last-child) {
+			margin-bottom: toRem(95);
+		}
+		@media (max-width: $tablet) {
+			&:not(:last-child) {
+				margin-bottom: toRem(60);
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			padding: toRem(0) toRem(30);
+		}
+	}
+
+	&__dotts {
+	}
+
+	&__gallery {
+		display: grid;
+		position: relative;
+		grid-template-columns: 1fr;
+	}
+
+	&__slider {
+		border-radius: toRem(36);
+		@media (max-width: $tablet) {
+			border-radius: toRem(20);
+		}
+	}
+
+	&__wrapper {
+	}
+
+	&__slide {
+	}
+
+	&__arrows {
+		width: 100%;
+		display: flex;
+		position: absolute;
+		align-items: center;
+		justify-content: space-between;
+		@media (min-width: em(1865.98)) {
+			top: 50%;
+			transform: translate(0, -50%);
+		}
+		@media (max-width: em(1865.98)) {
+			bottom: toRem(-50);
+		}
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+
+	&__arrow {
+		color: $bgColor;
+		transition:
+			opacity 0.3s ease 0s,
+			visibility 0.3s ease 0s,
+			color 0.3s ease 0s;
+		&.swiper-button-disabled {
+			opacity: 0;
+			visibility: hidden;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: rgba($yellowColor, 0.8);
+			}
+		}
+		&--prew {
+			transform: rotate(-180deg);
+			@media (min-width: em(1865.98)) {
+				margin-left: toRem(-50);
+			}
+		}
+
+		&--next {
+			@media (min-width: em(1865.98)) {
+				margin-right: toRem(-50);
+			}
+		}
+	}
+}
+.slide-say {
+	border-radius: toRem(36);
+	padding: toRem(50) toRem(35) toRem(60) toRem(35);
+	@media (max-width: $tablet) {
+		border-radius: toRem(20);
+		padding: toRem(30) toRem(20) toRem(40) toRem(20);
+	}
+	&--yellow {
+		background-color: $yellowColor;
+	}
+
+	&--white {
+		background-color: $bgColor;
+	}
+
+	&__image {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 60, 30);
+		}
+	}
+
+	&__content {
+	}
+
+	&__title {
+		max-width: toRem(250);
+		&:not(:last-child) {
+			margin-bottom: toRem(20);
+		}
+	}
+
+	&__text {
+	}
+}
 // ========================================================================================================================================================

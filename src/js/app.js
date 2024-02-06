@@ -36,7 +36,7 @@ flsFunctions.isWebp();
 /* Додавання loaded для HTML після повного завантаження сторінки */
 // flsFunctions.addLoadedClass();
 /* Модуль для роботи з меню (Бургер) */
-// flsFunctions.menuInit();
+flsFunctions.menuInit();
 /* Враховування плаваючої панелі на мобільних пристроях при 100vh */
 // flsFunctions.fullVHfix();
 /* Форматування чисел */
@@ -162,7 +162,7 @@ flsForms.formFieldsInit({
 Документація плагіна: https://swiperjs.com/
 Сніппет(HTML): swiper
 */
-// import "./files/sliders.js";
+import "./files/sliders.js";
 
 // ========================================================================================================================================================================================================================================================
 // Модулі роботи з прокручуванням сторінки ========================================================================================================================================================================================================================================================
@@ -206,7 +206,7 @@ import * as flsScroll from "./files/scroll/scroll.js";
 
 // Функціонал додавання класів до хедеру під час прокручування
 // Документація: https://template.fls.guru/template-docs/modul-dobavleniya-klassov-k-shapke-pri-prokrutke-stranicy.html
-// flsScroll.headerScroll();
+flsScroll.headerScroll();
 
 // Модуль анімація цифрового лічильника
 // Документація: https://template.fls.guru/template-docs/modul-animacii-cifrovogo-lichilnika.html

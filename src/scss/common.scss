@@ -14,3 +14,82 @@
 	background-color: rgba(#a60101, 0.5);
 }
 //========================================================================================================================================================
+// Styles For Title
+.title {
+	font-weight: 700;
+	line-height: 100%;
+	@include adaptiveValue("font-size", 85, 40);
+}
+.subtitle {
+	font-weight: 700;
+	line-height: 100%;
+	@include adaptiveValue("font-size", 47, 30);
+}
+.text {
+	font-weight: 500;
+	line-height: 135%;
+	&--big {
+		@include adaptiveValue("font-size", 35, 25);
+	}
+	&--min {
+		@include adaptiveValue("font-size", 28, 20);
+	}
+}
+.heading {
+	&--white {
+		color: $bgColor;
+	}
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 25, 15);
+		}
+	}
+
+	&__text {
+	}
+}
+//========================================================================================================================================================
+// Styles For Dotts Of Slider
+.dotts {
+	display: flex;
+	gap: toRem(50);
+	flex-wrap: wrap;
+	align-items: center;
+	@media (max-width: em(1730.98)) {
+		gap: toRem(30);
+	}
+	.swiper-pagination-bullet {
+		display: flex;
+		cursor: pointer;
+		height: toRem(7);
+		width: toRem(100);
+		border-radius: toRem(3);
+		background-color: #323241;
+		transition:
+			background-color 0.5s ease 0s,
+			width 0.5s ease 0s;
+		@media (max-width: em(1730.98)) {
+			width: toRem(70);
+		}
+		@media (max-width: $mobileSmall) {
+			width: toRem(50);
+		}
+	}
+	.swiper-pagination-bullet-active {
+		width: toRem(160);
+		background-color: $yellowColor;
+		@media (max-width: em(1730.98)) {
+			width: toRem(100);
+		}
+		@media (max-width: $mobileSmall) {
+			width: toRem(70);
+		}
+	}
+}
+//========================================================================================================================================================
+/* 
+<div class="__heading heading">
+	<h3 class="heading__title title">ждут за каждым поворотом</h3>
+	<div class="heading__text text"><p>выполняйте заказы на платформе и получайте доход!</p></div>
+</div>
+*/

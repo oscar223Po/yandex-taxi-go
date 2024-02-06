@@ -1,14 +1,54 @@
+// ========================================================================================================================================================
 //<BUTTONS (a.btn+tab)>
 // Сніппет (HTML): btn
-
 .button {
 	display: inline-flex;
 	padding: 0px 0px;
-	@media (any-hover: hover) {
-		&:hover {
+	font-weight: 800;
+	align-items: center;
+	min-height: toRem(94);
+	letter-spacing: 0.02em;
+	justify-content: center;
+	border-radius: toRem(36);
+	text-transform: uppercase;
+	@include adaptiveValue("font-size", 25, 18);
+	transition:
+		background-color 0.5s ease 0s,
+		color 0.5s ease 0s,
+		box-shadow 0.5s ease 0s;
+	@media (max-width: $mobile) {
+		min-height: toRem(70);
+		border-radius: toRem(20);
+	}
+	&--black {
+		color: $bgColor;
+		background-color: $mainColor;
+		box-shadow: toRem(0) toRem(4) toRem(122) toRem(0) rgba(255, 222, 64, 0.54);
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainColor;
+				background-color: $bgColor;
+				box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+			}
+		}
+	}
+	&--yellow {
+		background-color: $yellowColor;
+		box-shadow:
+			0 26px 57px 0 rgba(135, 135, 135, 0.1),
+			0 104px 104px 0 rgba(135, 135, 135, 0.09),
+			0 234px 141px 0 rgba(135, 135, 135, 0.05),
+			0 417px 167px 0 rgba(135, 135, 135, 0.01),
+			0 651px 182px 0 rgba(135, 135, 135, 0);
+		@media (any-hover: hover) {
+			&:hover {
+				color: $yellowColor;
+				background-color: #323241;
+			}
 		}
 	}
 	&--fw {
 		width: 100%;
 	}
 }
+// ========================================================================================================================================================

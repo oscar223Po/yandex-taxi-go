@@ -7,13 +7,19 @@ textarea {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	outline: none;
 }
 .input {
-	border-radius: 0 !important;
+	border-radius: 36px !important;
 	width: 100%;
 	display: block;
-	padding: 0px 20px;
-	border: 1px solid #eee;
+	padding: 0px 40px;
+	min-height: toRem(94);
+	@media (max-width: $mobile) {
+		padding: 0px 20px;
+		min-height: toRem(70);
+		border-radius: 20px !important;
+	}
 	&._form-focus {
 	}
 	&._form-error {
@@ -21,6 +27,7 @@ textarea {
 }
 .input[placeholder]:not([data-placeholder-nohiden]) {
 	&::placeholder {
+		opacity: 0.3;
 		transition: opacity 0.3s;
 	}
 	&:focus::placeholder {
