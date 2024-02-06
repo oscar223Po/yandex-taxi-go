@@ -1,0 +1,56 @@
+//========================================================================================================================================================
+// Header
+//========================================================================================================================================================
+//Burger
+/*
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		z-index: 5;
+		display: block;
+		width: toRem(30);
+		height: toRem(18);
+		position: relative;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			right: 0;
+			width: 100%;
+			content: "";
+			height: toRem(2);
+			position: absolute;
+			transition: all 0.3s ease 0s;
+			background-color: $mainColor;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - toRem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - toRem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+*/
+//========================================================================================================================================================
