@@ -13,6 +13,17 @@
 ::selection {
 	background-color: rgba(#a60101, 0.5);
 }
+summary {
+	list-style: none;
+	&::marker {
+		display: none;
+	}
+}
+@supports (-webkit-appearance: none) {
+	summary::-webkit-details-marker {
+		display: none;
+	}
+}
 //========================================================================================================================================================
 // Styles For Title
 .title {
@@ -28,6 +39,18 @@
 .text {
 	font-weight: 500;
 	line-height: 135%;
+	a {
+		font-weight: 700;
+		text-decoration: underline;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	span {
+		font-weight: 700;
+	}
 	&--big {
 		@include adaptiveValue("font-size", 35, 25);
 	}
@@ -42,6 +65,12 @@
 	&__title {
 		&:not(:last-child) {
 			@include adaptiveValue("margin-bottom", 25, 15);
+		}
+	}
+
+	&__subtitle {
+		&:not(:last-child) {
+			margin-bottom: toRem(18);
 		}
 	}
 

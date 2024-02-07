@@ -1,3 +1,111 @@
 //========================================================================================================================================================
 // Footer
+.footer {
+	background-color: $mainColor;
+	@include adaptiveValue("margin-top", 160, 40);
+	@include adaptiveValue("padding-top", 130, 35, 0, 1730, 767.98);
+	@include adaptiveValue("padding-bottom", 50, 25, 0, 1730, 767.98);
+	&__container {
+		display: grid;
+		@include adaptiveValue("gap", 50, 25);
+	}
+
+	&__main {
+		display: flex;
+		justify-content: space-between;
+		@media (max-width: $tablet) {
+			width: 100%;
+			gap: toRem(30);
+			flex-direction: column;
+		}
+	}
+
+	&__logo {
+		@include adaptiveValue("max-width", 295, 185, 0, 1730, 991.98);
+		img {
+			max-width: 100%;
+		}
+		@media (max-width: $tablet) {
+			margin: 0 auto;
+		}
+	}
+
+	&__spollers {
+		display: flex;
+		@include adaptiveValue("gap", 150, 50, 2, 1730, 991.98);
+		@media (max-width: $tablet) {
+			justify-content: space-between;
+		}
+		@media (max-width: $mobile) {
+			gap: toRem(20);
+			flex-direction: column;
+		}
+	}
+
+	&__copy {
+		color: #323241;
+		font-weight: 500;
+		line-height: 135%;
+		text-align: center;
+		@include adaptiveValue("font-size", 25, 20);
+	}
+}
+.spollers-footer {
+	color: $bgColor;
+	&__item {
+	}
+
+	&__title {
+		._spoller-init & {
+			position: relative;
+			width: 100%;
+			text-align: left;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				right: 0;
+				top: toRem(15);
+				height: toRem(2);
+				transition: all 0.3s ease 0s;
+				width: toRem(10);
+				background-color: $bgColor;
+			}
+			&::before {
+				transform: rotate(40deg);
+				right: toRem(7);
+			}
+			&::after {
+				transform: rotate(-40deg);
+			}
+		}
+		&._spoller-active {
+			&::before {
+				transform: rotate(-40deg);
+			}
+			&::after {
+				transform: rotate(40deg);
+			}
+		}
+	}
+
+	&__body {
+		margin-top: toRem(20);
+		@media (max-width: $mobile) {
+			margin-top: toRem(15);
+		}
+	}
+
+	&__link {
+		font-weight: 500;
+		line-height: 135%;
+		transition: color 0.3s ease 0s;
+		@include adaptiveValue("font-size", 25, 20);
+		@media (any-hover: hover) {
+			&:hover {
+				color: $yellowColor;
+			}
+		}
+	}
+}
 //========================================================================================================================================================
