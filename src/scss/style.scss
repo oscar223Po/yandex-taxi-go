@@ -760,6 +760,286 @@ body {
 	}
 }
 // ========================================================================================================================================================
+// Deal
+.deal {
+	@include adaptiveValue("padding-top", 200, 40);
+	&__container {
+		display: grid;
+		@include adaptiveValue("gap", 30, 15);
+		grid-template-columns: 53.294798% 45.086705%;
+		@media (max-width: $mobile) {
+			grid-template-columns: auto;
+		}
+	}
+
+	&__left {
+		display: grid;
+		position: relative;
+		grid-template-rows: repeat(3, 1fr);
+		@include adaptiveValue("gap", 30, 15);
+	}
+
+	&__heading {
+		@media (min-width: $tablet) {
+			top: toRem(-50);
+			position: absolute;
+		}
+	}
+
+	&__item {
+	}
+
+	&__right {
+		display: grid;
+		@include adaptiveValue("gap", 30, 15);
+	}
+}
+.item-deal {
+	overflow: hidden;
+	border-radius: toRem(36);
+	@include adaptiveValue("padding-top", 55, 45, 2, 1730, 991.98);
+	@include adaptiveValue("padding-left", 40, 30, 2, 1730, 991.98);
+	@include adaptiveValue("padding-right", 40, 30, 2, 1730, 991.98);
+	@include adaptiveValue("padding-bottom", 65, 50, 2, 1730, 991.98);
+	@media (max-width: $tablet) {
+		padding: toRem(20);
+		border-radius: toRem(20);
+	}
+	@media (max-width: $mobile) {
+		padding: toRem(20) toRem(15) toRem(50) toRem(15);
+	}
+	@media (max-width: $mobileSmall) {
+		padding: toRem(20) toRem(10) toRem(50) toRem(10);
+	}
+	&--01 {
+		background: #f5f5f5 url("@img/deal/01.svg") right bottom / contain no-repeat;
+		@media (min-width: $tablet) {
+			grid-row: 2 / span 1;
+		}
+	}
+
+	&--02 {
+		background: #f5f5f5 url("@img/deal/02.svg") right bottom / contain no-repeat;
+		@media (min-width: $tablet) {
+			grid-row: span 2;
+		}
+	}
+
+	&--03 {
+		background: $yellowColor url("@img/deal/03.svg") right bottom / contain no-repeat;
+	}
+
+	&--04 {
+		background: $yellowColor url("@img/deal/04.svg") right bottom / contain no-repeat;
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: toRem(20);
+		}
+	}
+
+	&__text {
+		max-width: toRem(580);
+	}
+}
+// ========================================================================================================================================================
+// Stock
+.stock {
+	@include adaptiveValue("padding-top", 160, 40);
+	&__container {
+	}
+
+	&__title {
+		display: flex;
+		gap: toRem(20);
+		align-items: center;
+		justify-content: flex-end;
+		flex-direction: row-reverse;
+		&::before {
+			font-size: toRem(24);
+			padding-top: toRem(15);
+		}
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 50, 20);
+		}
+		@media (max-width: $mobile) {
+			&::before {
+				font-size: toRem(15);
+				padding-top: toRem(12);
+			}
+		}
+	}
+
+	&__slider.swiper {
+		overflow: visible;
+		position: relative;
+		max-width: toRem(675);
+		margin: toRem(0) auto;
+	}
+
+	&__wrapper {
+	}
+
+	&__slide {
+	}
+
+	&__arrows {
+		top: 50%;
+		width: 100%;
+		display: flex;
+		position: absolute;
+		align-items: center;
+		justify-content: space-between;
+		transform: translate(0px, -50%);
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+
+	&__arrow {
+		display: flex;
+		width: toRem(50);
+		height: toRem(50);
+		border-radius: 50%;
+		align-items: center;
+		justify-content: center;
+		transition:
+			background-color 0.5s ease 0s,
+			color 0.5s ease 0s,
+			font-size 0.5s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $bgColor;
+				font-size: toRem(24);
+				background-color: $mainColor;
+			}
+		}
+		&--prew {
+			margin-left: toRem(-65);
+			transform: rotate(-180deg);
+		}
+
+		&--next {
+			margin-right: toRem(-65);
+		}
+	}
+
+	&__dotts {
+		margin-top: toRem(30);
+		justify-content: center;
+		@media (min-width: $tablet) {
+			display: none;
+		}
+	}
+}
+.slide-stock {
+	display: grid;
+	justify-items: start;
+	border-radius: toRem(72);
+	background-color: #f5f5f5;
+	padding: toRem(120) toRem(65);
+	@include adaptiveValue("gap", 60, 25);
+	transition: background-color 0.3s ease 0s;
+	&.swiper-slide-active {
+		background-color: $yellowColor;
+		.slide-stock__button {
+			color: $bgColor;
+			background-color: $mainColor;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $yellowColor;
+					background-color: #323241;
+				}
+			}
+		}
+	}
+	@media (max-width: $tablet) {
+		border-radius: toRem(32);
+		padding: toRem(60) toRem(30);
+	}
+	@media (max-width: $mobile) {
+		border-radius: toRem(25);
+		padding: toRem(30) toRem(20);
+	}
+	&__label {
+		font-weight: 700;
+		line-height: 135%;
+		display: inline-flex;
+		letter-spacing: 0.02em;
+		border-radius: toRem(26);
+		background-color: $bgColor;
+		padding: toRem(20) toRem(60);
+		@include adaptiveValue("font-size", 25, 18);
+		@media (max-width: $mobile) {
+			width: 100%;
+			justify-content: center;
+			border-radius: toRem(15);
+			padding: toRem(15) toRem(0);
+		}
+	}
+
+	&__wins {
+		border-bottom: toRem(1) solid $mainColor;
+		@include adaptiveValue("padding-bottom", 60, 25);
+	}
+
+	&__title {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 30, 15);
+		}
+	}
+
+	&__items {
+		display: grid;
+		gap: toRem(30);
+	}
+
+	&__item {
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: toRem(5);
+		align-items: center;
+		span {
+			display: flex;
+			font-weight: 700;
+			height: toRem(42);
+			border-radius: 50%;
+			align-items: center;
+			min-width: toRem(42);
+			margin-right: toRem(20);
+			justify-content: center;
+			background-color: $bgColor;
+			@include adaptiveValue("font-size", 25, 18);
+		}
+		b {
+			margin: toRem(0) toRem(7);
+		}
+		@media (max-width: $mobileSmall) {
+			span {
+				margin-right: toRem(10);
+			}
+		}
+	}
+
+	&__cond {
+	}
+
+	&__text {
+	}
+
+	&__button {
+		width: 100%;
+		background-color: $bgColor;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $bgColor;
+				background-color: #323241;
+			}
+		}
+	}
+}
+// ========================================================================================================================================================
 // Faq
 .faq {
 	@include adaptiveValue("padding-top", 160, 40);

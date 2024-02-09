@@ -3744,6 +3744,39 @@
             },
             on: {}
         });
+        if (document.querySelector(".stock__slider")) new swiper_core_Swiper(".stock__slider", {
+            modules: [ Navigation, Pagination ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 90,
+            speed: 800,
+            initialSlide: 2,
+            centeredSlides: true,
+            pagination: {
+                el: ".stock__dotts",
+                clickable: true
+            },
+            navigation: {
+                prevEl: ".stock__arrow--prew",
+                nextEl: ".stock__arrow--next"
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                767.98: {
+                    slidesPerView: 1,
+                    spaceBetween: 30
+                },
+                991.98: {
+                    slidesPerView: 1,
+                    spaceBetween: 90
+                }
+            },
+            on: {}
+        });
     }
     window.addEventListener("load", (function(e) {
         initSliders();
